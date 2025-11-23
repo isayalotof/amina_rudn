@@ -77,6 +77,15 @@ const Header = ({ onOpenMenteeModal, onOpenMentorModal }: HeaderProps) => {
             >
               Подать заявку
             </motion.button>
+
+            <motion.button
+              onClick={onOpenMentorModal}
+              className="btn-secondary ripple"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Стать ментором
+            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -128,6 +137,18 @@ const Header = ({ onOpenMenteeModal, onOpenMentorModal }: HeaderProps) => {
                   transition={{ delay: navItems.length * 0.1 }}
                 >
                   Подать заявку
+                </motion.button>
+                <motion.button
+                  onClick={() => {
+                    onOpenMentorModal();
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="block btn-secondary text-center w-full"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: (navItems.length + 1) * 0.1 }}
+                >
+                  Стать ментором
                 </motion.button>
               </div>
             </motion.div>

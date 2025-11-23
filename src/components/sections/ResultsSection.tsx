@@ -120,7 +120,6 @@ const ResultsSection = () => {
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: 'easeInOut',
           }}
         />
         <motion.div
@@ -132,7 +131,6 @@ const ResultsSection = () => {
           transition={{
             duration: 10,
             repeat: Infinity,
-            ease: 'easeInOut',
             delay: 1,
           }}
         />

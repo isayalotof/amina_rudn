@@ -41,7 +41,6 @@ const HeroSection = ({ onOpenMenteeModal, onOpenMentorModal }: HeroSectionProps)
       y: 0,
       transition: {
         duration: 0.8,
-        ease: 'easeOut',
       },
     },
   };
@@ -63,7 +62,6 @@ const HeroSection = ({ onOpenMenteeModal, onOpenMentorModal }: HeroSectionProps)
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: 'easeInOut',
           }}
         />
         <motion.div
@@ -76,7 +74,6 @@ const HeroSection = ({ onOpenMenteeModal, onOpenMentorModal }: HeroSectionProps)
           transition={{
             duration: 10,
             repeat: Infinity,
-            ease: 'easeInOut',
           }}
         />
         <motion.div
@@ -88,7 +85,6 @@ const HeroSection = ({ onOpenMenteeModal, onOpenMentorModal }: HeroSectionProps)
           transition={{
             duration: 12,
             repeat: Infinity,
-            ease: 'linear',
           }}
         />
       </div>

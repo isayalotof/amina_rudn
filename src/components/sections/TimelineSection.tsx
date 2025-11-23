@@ -89,7 +89,6 @@ const TimelineSection = () => {
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: 'easeInOut',
           }}
         />
         <motion.div
@@ -101,7 +100,6 @@ const TimelineSection = () => {
           transition={{
             duration: 10,
             repeat: Infinity,
-            ease: 'easeInOut',
             delay: 1,
           }}
         />

@@ -33,7 +33,7 @@ const Header = ({ onOpenMenteeModal, onOpenMentorModal }: HeaderProps) => {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
           ? 'glass-strong shadow-lg border-b border-white/10'

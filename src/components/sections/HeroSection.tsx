@@ -207,13 +207,13 @@ const HeroSection = ({ onOpenMenteeModal, onOpenMentorModal }: HeroSectionProps)
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 2, repeat: Infinity }}
       >
         <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full p-1">
           <motion.div
             className="w-1.5 h-3 bg-gray-600 dark:bg-gray-400 rounded-full mx-auto"
             animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            transition={{ duration: 2, repeat: Infinity }}
           />
         </div>
       </motion.div>

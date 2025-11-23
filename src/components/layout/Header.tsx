@@ -70,21 +70,21 @@ const Header = ({ onOpenMenteeModal, onOpenMentorModal }: HeaderProps) => {
             ))}
 
             <motion.button
-              onClick={onOpenMenteeModal}
-              className="btn-primary ripple"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Подать заявку
-            </motion.button>
-
-            <motion.button
               onClick={onOpenMentorModal}
-              className="btn-secondary ripple"
+              className="btn-outline ripple text-sm"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Стать ментором
+            </motion.button>
+
+            <motion.button
+              onClick={onOpenMenteeModal}
+              className="btn-primary ripple text-sm"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Подать заявку
             </motion.button>
           </div>
 
@@ -128,27 +128,27 @@ const Header = ({ onOpenMenteeModal, onOpenMentorModal }: HeaderProps) => {
                 ))}
                 <motion.button
                   onClick={() => {
+                    onOpenMentorModal();
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="block btn-outline text-center w-full"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: navItems.length * 0.1 }}
+                >
+                  Стать ментором
+                </motion.button>
+                <motion.button
+                  onClick={() => {
                     onOpenMenteeModal();
                     setIsMobileMenuOpen(false);
                   }}
                   className="block btn-primary text-center w-full"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: navItems.length * 0.1 }}
-                >
-                  Подать заявку
-                </motion.button>
-                <motion.button
-                  onClick={() => {
-                    onOpenMentorModal();
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className="block btn-secondary text-center w-full"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: (navItems.length + 1) * 0.1 }}
                 >
-                  Стать ментором
+                  Подать заявку
                 </motion.button>
               </div>
             </motion.div>

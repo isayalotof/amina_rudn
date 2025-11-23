@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  promentor-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: promentor-rudn
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      # SSL certificates from Let's Encrypt
+      - /etc/letsencrypt/live/max.isayalot.ru/fullchain.pem:/etc/nginx/ssl/fullchain.pem:ro
+      - /etc/letsencrypt/live/max.isayalot.ru/privkey.pem:/etc/nginx/ssl/privkey.pem:ro
+      - /etc/letsencrypt/options-ssl-nginx.conf:/etc/nginx/ssl/options-ssl-nginx.conf:ro
+      - /etc/letsencrypt/ssl-dhparams.pem:/etc/nginx/ssl/ssl-dhparams.pem:ro
+    networks:
+      - promentor-network
+    environment:
+      - NODE_ENV=production
+
+networks:
+  promentor-network:
+    driver: bridge

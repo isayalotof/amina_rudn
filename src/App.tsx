@@ -6,6 +6,8 @@ import AboutSection from './components/sections/AboutSection';
 import VectorsSection from './components/sections/VectorsSection';
 import TimelineSection from './components/sections/TimelineSection';
 import MentorsSection from './components/sections/MentorsSection';
+import DirectionsSection from './components/sections/DirectionsSection';
+import ResultsSection from './components/sections/ResultsSection';
 import FAQSection from './components/sections/FAQSection';
 
 function App() {
@@ -43,6 +45,8 @@ function App() {
         <VectorsSection />
         <TimelineSection />
         <MentorsSection />
+        <DirectionsSection />
+        <ResultsSection />
         <FAQSection />
       </main>
       <Footer />

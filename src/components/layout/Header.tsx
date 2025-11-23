@@ -131,7 +131,7 @@ const Header = ({ onOpenMenteeModal, onOpenMentorModal }: HeaderProps) => {
                     onOpenMentorModal();
                     setIsMobileMenuOpen(false);
                   }}
-                  className="block btn-outline text-center w-full"
+                  className="block btn-secondary text-center w-full"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navItems.length * 0.1 }}

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import HeroSection from './components/sections/HeroSection';
@@ -9,8 +9,12 @@ import MentorsSection from './components/sections/MentorsSection';
 import DirectionsSection from './components/sections/DirectionsSection';
 import ResultsSection from './components/sections/ResultsSection';
 import FAQSection from './components/sections/FAQSection';
+import ApplyMenteeModal from './components/forms/ApplyMenteeModal';
+import ApplyMentorModal from './components/forms/ApplyMentorModal';
 
 function App() {
+  const [isMenteeModalOpen, setIsMenteeModalOpen] = useState(false);
+  const [isMentorModalOpen, setIsMentorModalOpen] = useState(false);
   useEffect(() => {
     // Smooth scroll behavior
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -38,9 +42,15 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950">
-      <Header />
+      <Header
+        onOpenMenteeModal={() => setIsMenteeModalOpen(true)}
+        onOpenMentorModal={() => setIsMentorModalOpen(true)}
+      />
       <main>
-        <HeroSection />
+        <HeroSection
+          onOpenMenteeModal={() => setIsMenteeModalOpen(true)}
+          onOpenMentorModal={() => setIsMentorModalOpen(true)}
+        />
         <AboutSection />
         <VectorsSection />
         <TimelineSection />
@@ -50,6 +60,16 @@ function App() {
         <FAQSection />
       </main>
       <Footer />
+
+      {/* Modals */}
+      <ApplyMenteeModal
+        isOpen={isMenteeModalOpen}
+        onClose={() => setIsMenteeModalOpen(false)}
+      />
+      <ApplyMentorModal
+        isOpen={isMentorModalOpen}
+        onClose={() => setIsMentorModalOpen(false)}
+      />
     </div>
   );
 }

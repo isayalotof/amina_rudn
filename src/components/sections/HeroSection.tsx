@@ -3,7 +3,12 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
 
-const HeroSection = () => {
+interface HeroSectionProps {
+  onOpenMenteeModal: () => void;
+  onOpenMentorModal: () => void;
+}
+
+const HeroSection = ({ onOpenMenteeModal, onOpenMentorModal }: HeroSectionProps) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -147,24 +152,24 @@ const HeroSection = () => {
             variants={itemVariants}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
           >
-            <motion.a
-              href="#apply-mentee"
+            <motion.button
+              onClick={onOpenMenteeModal}
               className="btn-primary flex items-center gap-2 w-full sm:w-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Подать заявку менти
               <ArrowRight className="w-5 h-5" />
-            </motion.a>
-            <motion.a
-              href="#apply-mentor"
+            </motion.button>
+            <motion.button
+              onClick={onOpenMentorModal}
               className="btn-secondary flex items-center gap-2 w-full sm:w-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Стать ментором
               <ArrowRight className="w-5 h-5" />
-            </motion.a>
+            </motion.button>
           </motion.div>
 
           {/* Stats Grid */}

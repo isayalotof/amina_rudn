@@ -2,7 +2,12 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
-const Header = () => {
+interface HeaderProps {
+  onOpenMenteeModal: () => void;
+  onOpenMentorModal: () => void;
+}
+
+const Header = ({ onOpenMenteeModal, onOpenMentorModal }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -64,14 +69,14 @@ const Header = () => {
               </motion.a>
             ))}
 
-            <motion.a
-              href="#apply"
+            <motion.button
+              onClick={onOpenMenteeModal}
               className="btn-primary ripple"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Подать заявку
-            </motion.a>
+            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -112,16 +117,18 @@ const Header = () => {
                     {item.name}
                   </motion.a>
                 ))}
-                <motion.a
-                  href="#apply"
-                  className="block btn-primary text-center"
+                <motion.button
+                  onClick={() => {
+                    onOpenMenteeModal();
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="block btn-primary text-center w-full"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navItems.length * 0.1 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Подать заявку
-                </motion.a>
+                </motion.button>
               </div>
             </motion.div>
           )}
